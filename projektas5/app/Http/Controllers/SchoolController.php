@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\School;
 use App\Http\Requests\StoreSchoolRequest;
 use App\Http\Requests\UpdateSchoolRequest;
+use GuzzleHttp\Psr7\Request;
 
 class SchoolController extends Controller
 {
@@ -15,7 +16,8 @@ class SchoolController extends Controller
      */
     public function index()
     {
-        //
+        $schools = School::all();
+        return view('schools.index', ['schools' => $schools]);
     }
 
     /**
@@ -25,7 +27,7 @@ class SchoolController extends Controller
      */
     public function create()
     {
-        //
+        return view('schools.create');
     }
 
     /**
@@ -34,9 +36,17 @@ class SchoolController extends Controller
      * @param  \App\Http\Requests\StoreSchoolRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreSchoolRequest $request)
+    public function store(Request $request)
     {
-        //
+        $school = new School;
+
+        $school->name = $request->client_name;
+        $school->description = $request->description;
+        $school->place = $request->place;
+        $school->phone = $request->phone;
+
+        $school->save();
+        return redirect()->route('school.index');
     }
 
     /**
@@ -47,7 +57,7 @@ class SchoolController extends Controller
      */
     public function show(School $school)
     {
-        //
+        return view('schools.show', ['school' => $school]);
     }
 
     /**
@@ -58,7 +68,8 @@ class SchoolController extends Controller
      */
     public function edit(School $school)
     {
-        //
+        $select_values = School::all();
+        return view('schools.edit', ['schools' => $school, 'selected_values']);
     }
 
     /**
@@ -68,9 +79,15 @@ class SchoolController extends Controller
      * @param  \App\Models\School  $school
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateSchoolRequest $request, School $school)
+    public function update(Request $request, School $school)
     {
-        //
+        $school->name = $request->client_name;
+        $school->description = $request->description;
+        $school->place = $request->place;
+        $school->phone = $request->phone;
+
+        $school->save();
+        return redirect()->route('school.index');
     }
 
     /**
@@ -81,6 +98,7 @@ class SchoolController extends Controller
      */
     public function destroy(School $school)
     {
-        //
+        $school->delete();
+        return redirect()->route('school.index');
     }
 }
