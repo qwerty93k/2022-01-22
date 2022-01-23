@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\School;
 use App\Http\Requests\StoreSchoolRequest;
 use App\Http\Requests\UpdateSchoolRequest;
-use GuzzleHttp\Psr7\Request;
+use Illuminate\Http\Request;
 
 class SchoolController extends Controller
 {
@@ -40,7 +40,7 @@ class SchoolController extends Controller
     {
         $school = new School;
 
-        $school->name = $request->client_name;
+        $school->name = $request->name;
         $school->description = $request->description;
         $school->place = $request->place;
         $school->phone = $request->phone;
@@ -68,8 +68,7 @@ class SchoolController extends Controller
      */
     public function edit(School $school)
     {
-        $select_values = School::all();
-        return view('schools.edit', ['schools' => $school, 'selected_values']);
+        return view('schools.edit', ['school' => $school]);
     }
 
     /**
@@ -81,7 +80,7 @@ class SchoolController extends Controller
      */
     public function update(Request $request, School $school)
     {
-        $school->name = $request->client_name;
+        $school->name = $request->name;
         $school->description = $request->description;
         $school->place = $request->place;
         $school->phone = $request->phone;

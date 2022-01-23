@@ -12,14 +12,14 @@
 </head>
 <body>
 <div class="container">
-    <h1>School edit</h1>
-    <form method="POST" action="{{route('school.update', [$school])}}">
-        <input type="text" class="form-control" name="name" value={{$school->name}} placeholder="School name">
+    <h1>Attendance group edit</h1>
+    <form method="POST" action="{{route('attendancegroup.update', [$attendancegroup])}}">
+        <input type="text" class="form-control" name="name" value={{$attendancegroup->name}} placeholder="Attendance group name">
         <textarea class="form-control" name="description" id="summernote">
-            {{$school->description}}
+            {{$attendancegroup->description}}
         </textarea>
-        <input type="text" class="form-control" name="place" value={{$school->place}} placeholder="School place">
-        <input type="text" class="form-control" name="phone" value={{$school->phone}} placeholder="School phone">
+        <input type="text" class="form-control" name="phone" value={{$attendancegroup->difficulty}} placeholder="Difficulty">
+        <input type="text" class="form-control" name="phone" value={{$attendancegroup->school_id}} placeholder="School ID">
         <button type="submit" class="btn btn-primary">Save</button>
         @csrf
     </form>
