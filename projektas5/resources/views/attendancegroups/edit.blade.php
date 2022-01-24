@@ -18,8 +18,8 @@
         <textarea class="form-control" name="description" id="summernote">
             {{$attendancegroup->description}}
         </textarea>
-        <input type="text" class="form-control" name="phone" value={{$attendancegroup->difficulty}} placeholder="Difficulty">
-        <input type="text" class="form-control" name="phone" value={{$attendancegroup->school_id}} placeholder="School ID">
+        <input type="text" class="form-control" name="difficulty" value={{$attendancegroup->difficulty}} placeholder="Difficulty">
+        <input type="text" class="form-control" name="school_id" value={{$attendancegroup->school_id}} placeholder="School ID">
         <button type="submit" class="btn btn-primary">Save</button>
         @csrf
     </form>

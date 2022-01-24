@@ -34,7 +34,7 @@
         </table>
         <a href="{{route('attendancegroup.index')}}" class="btn btn-primary">Back</a>
     
-        <form method="post" action="{{route('attendancegroup.destroy', [$school])}}">
+        <form method="post" action="{{route('attendancegroup.destroy', [$attendancegroup])}}">
             @csrf
             <button type="submit" class="btn btn-danger">Delete</button>
         </form>
