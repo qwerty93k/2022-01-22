@@ -18,6 +18,8 @@ class CreateStudentsTable extends Migration
             $table->string('name');
             $table->string('surname');
             $table->unsignedBigInteger('group_id');
+            $table->foreign('group_id')->references('id')->on('attendancegroups');
+
             $table->string('image_url');
             $table->timestamps();
         });

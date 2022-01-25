@@ -14,6 +14,6 @@ class AttendanceGroupSeeder extends Seeder
      */
     public function run()
     {
-        AttendanceGroup::factory()->count(60)->create();
+        AttendanceGroup::factory()->count(15)->create();
     }
 }
