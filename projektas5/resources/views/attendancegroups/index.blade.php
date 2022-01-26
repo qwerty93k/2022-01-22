@@ -34,6 +34,7 @@
             <th>Group name</th>
             <th>Description</th>
             <th>Difficulty</th>
+            <th>School ID</th>
             <th>Action</th>
         </tr>
         @foreach ($attendancegroups as $attendancegroup)
@@ -42,6 +43,7 @@
                 <td>{{$attendancegroup->name}}</td>
                 <td>{!!$attendancegroup->description!!}</td>
                 <td>{{$attendancegroup->difficulty}}</td>
+                <td>{{$attendancegroup->school_id}}</td>
                 <td>
                     <a class="btn btn-primary" href="{{route('attendancegroup.edit', [$attendancegroup])}}">Edit</a>
                     <a class="btn btn-secondary" href="{{route('attendancegroup.show', [$attendancegroup])}}">Show</a>

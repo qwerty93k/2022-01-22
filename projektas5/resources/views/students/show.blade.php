@@ -24,7 +24,7 @@
                 <td>{{$student->id}}</td>
                 <td>{{$student->name}}</td>
                 <td>{{$student->surname}}</td>
-                <td>{{$student->group_id}}</td>
+                <td>{{$student->studentsGroup->name}}</td>
                 <td><a href="{{$student->image_url}}" target="_blank"><img alt="{{$student->name}} {{$student->surname}}" src="{{$student->image_url}}" width="100" height="100"></a></td>
                 <td>
                     <form method="post" action="{{route('student.destroy', [$student])}}">
