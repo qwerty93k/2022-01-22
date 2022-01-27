@@ -43,7 +43,7 @@
                 <td>{{$attendancegroup->name}}</td>
                 <td>{!!$attendancegroup->description!!}</td>
                 <td>{{$attendancegroup->difficulty}}</td>
-                <td>{{$attendancegroup->school_id}}</td>
+                <td>{{$attendancegroup->attendanceGroupSchool->name}}</td>
                 <td>
                     <a class="btn btn-primary" href="{{route('attendancegroup.edit', [$attendancegroup])}}">Edit</a>
                     <a class="btn btn-secondary" href="{{route('attendancegroup.show', [$attendancegroup])}}">Show</a>
