@@ -16,7 +16,12 @@
     <form method="POST" action="{{route('student.update', [$student])}}">
         <input type="text" class="form-control" name="name" value={{$student->name}} placeholder="Name">
         <input type="text" class="form-control" name="surname" value={{$student->surname}} placeholder="Surname">
-        <input type="text" class="form-control" name="group_id" value={{$student->group_id}} placeholder="Group ID">
+       <!-- <input type="text" class="form-control" name="group_id" value={{$student->group_id}} placeholder="Group ID"> -->
+        <select name="group_id" class="form-control">
+            @foreach ($select_values as $attendancegroup)
+                <option value="{{$attendancegroup->id}}">{{$attendancegroup->name}}</option>                    
+            @endforeach
+        </select>
         <input type="text" class="form-control" name="image_url" value={{$student->image_url}} placeholder="Image url">
         <button type="submit" class="btn btn-primary">Save</button>
         @csrf

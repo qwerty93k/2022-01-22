@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Student;
+use App\Models\AttendanceGroup;
 use App\Http\Requests\StoreStudentRequest;
 use App\Http\Requests\UpdateStudentRequest;
 use Illuminate\Http\Request;
@@ -27,7 +28,8 @@ class StudentController extends Controller
      */
     public function create()
     {
-        return view('students.create');
+        $select_values = AttendanceGroup::all();
+        return view('students.create', ['select_values' => $select_values]);
     }
 
     /**
@@ -68,7 +70,8 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
-        return view('students.edit', ['student' => $student]);
+        $select_values = AttendanceGroup::all();
+        return view('students.edit', ['student' => $student, 'select_values' => $select_values]);
     }
 
     /**

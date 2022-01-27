@@ -34,6 +34,7 @@
             <th>Name</th>
             <th>Surname</th>
             <th>Group Id</th>
+            <th>Group Difficulty</th>
             <th>Image Url</th>
             <th>Action</th>
         </tr>
@@ -43,6 +44,7 @@
                 <td>{{$student->name}}</td>
                 <td>{{$student->surname}}</td>
                 <td>{{$student->studentsGroup->name}}</td>
+                <td>{{$student->studentsGroup->difficulty}}</td>
                 <td><a href="{{$student->image_url}}" target="_blank"><img alt="{{$student->name}} {{$student->surname}}" src="{{$student->image_url}}" width="100" height="100"></a></td>
                 <td>
                     <a class="btn btn-primary" href="{{route('student.edit', [$student])}}">Edit</a>

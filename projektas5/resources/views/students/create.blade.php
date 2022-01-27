@@ -14,7 +14,13 @@
             <input type="text" class="form-control" name="name" placeholder="Name">
             <input type="text" class="form-control" name="surname" placeholder="Surname">
             <input type="text" class="form-control" name="image_url" placeholder="image url">
-            <input type="text" class="form-control" name="group_id" placeholder="Group id">
+            <!-- <input type="text" class="form-control" name="group_id" placeholder="Group id"> -->
+            <select name="group_id" class="form-control">
+                @foreach ($select_values as $attendancegroup)
+                    <option value="{{$attendancegroup->id}}">{{$attendancegroup->name}}</option>                    
+                @endforeach
+            </select>
+
             <button type="submit" class="btn btn-primary">Add</button>
             <a class="btn btn-secondary" href="{{route('student.index')}}">Students</a>
             @csrf
