@@ -13,10 +13,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call([
+        $this->call([ //turi pasileisti tokia pat tvarka kaip ir migracijos
+            SchoolSeeder::class,
             AttendanceGroupSeeder::class,
-            StudentSeeder::class,
-            SchoolSeeder::class
+            StudentSeeder::class
         ]);
     }
 }
