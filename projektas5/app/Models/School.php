@@ -9,7 +9,7 @@ class School extends Model
 {
     use HasFactory;
 
-    //grazina masyva hasmany
+    //grazina masyva hasmany, kiek mokykla turi grupiu
     public function schoolAttendancegroups()
     {
         return $this->hasMany(AttendanceGroup::class, 'school_id', 'id');
